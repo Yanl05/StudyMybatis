@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    设置记录日志的方式-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <typeAliases>
+        <package name="com.steer.pojo"/>
+    </typeAliases>
+    <environments default="default">
+        <environment id="default">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+<!--                四个属性-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/ssm"/>
+                <property name="username" value="root"/>
+                <property name="password" value="951105"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--            配置mapper资源-->
+    <mappers>
+        <mapper resource="com/steer/mapper/AccountMapper.xml"/>
+        <mapper resource="com/steer/mapper/LogMapper.xml"/>
+    </mappers>
+</configuration>
